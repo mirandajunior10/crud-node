@@ -1,43 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>My CRUD in NodeJS</title>
+    <meta charset="UTF-8">
+    <title>My CRUD in NodeJS</title>
+    <link rel="stylesheet" type="text/css" href="css/show.css">
 </head>
+
 <body>
 
-<h2>Registros<h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <td>Nome</td>
-                <td>Sobrenome</td>
-                <td>Telefone</td>
-                <td>Email</td>
-                <td>Endereço</td>
-                <td>Nº casa</td>
-                <td>CPF</td>
-                <td>RG</td>
-                <td>Nome do pai</td>
-                <td>Nome da mae</td>
-            </tr>
-        </thead>
-        <tbody>
-        <% data.forEach(function(details) { %>
-            <tr>
-                <td><%= details.name %></td>
-                <td><%= details.surname %></td>
-                <td><%= details.telefone %></td>
-                <td><%= details.email %></td>
-                <td><%= details.endereco %></td>
-                <td><%= details.numCasa %></td>
-                <td><%= details.CPF %></td>
-                <td><%= details.rg %></td>
-                <td><%= details.FatherName %></td>
-                <td><%= details.motherName %></td>
-            </tr>
-            <% }) %>
-        </tbody>
-        <button><a href="/">Voltar</a></button>
+    <h2>Registros
+        <h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Sobrenome</th>
+                        <th>Telefone</th>
+                        <th>Email</th>
+                        <th>Endereço</th>
+                        <th>Nº casa</th>
+                        <th>CPF</th>
+                        <th>RG</th>
+                        <th>Nome do pai</th>
+                        <th>Nome da mãe</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach(function(details) { %>
+                        <tr>
+                            <td style="display: none;">
+                                <%= details._id %>
+                            </td>
+                            <td>
+                                <%= details.name %>
+                            </td>
+                            <td>
+                                <%= details.surname %>
+                            </td>
+                            <td>
+                                <%= details.telefone %>
+                            </td>
+                            <td>
+                                <%= details.email %>
+                            </td>
+                            <td>
+                                <%= details.endereco %>
+                            </td>
+                            <td>
+                                <%= details.numCasa %>
+                            </td>
+                            <td>
+                                <%= details.CPF %>
+                            </td>
+                            <td>
+                                <%= details.rg %>
+                            </td>
+                            <td>
+                                <%= details.FatherName   %>
+                            </td>
+                            <td>
+                                <%= details.motherName %>
+                            </td>
+                            <td>
+                                <button type="button"><a href="/">Editar</a></button>
+                            </td>
+                            <td>
+                                <button type="button"><a href="/">Excluir</a></button>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+                <button type="button"><a href="/">Voltar</a></button>
 </body>
+
 </html>

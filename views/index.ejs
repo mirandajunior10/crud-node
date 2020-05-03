@@ -4,39 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <title>My CRUD in NodeJS</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
 </head>
 
 <body>
 
-    <h2>Registrar<h2>
-            <form action="/show" method="POST">
-                <ul style="list-style-type:none">
-                    <li>
-                        <input type="text" placeholder="Nome" name="name">
-                        <input type="text" placeholder="Sobrenome" name="surname">
-                    </li>
-                    <li>
-                        <input type="tel"   placeholder="Telefone" name="telefone">
-                        <input type="email" placeholder="email" name="email">
-                       
-                    </li>
-                    <li>
-                        <input type="text"   placeholder="Endereço" name="endereco">
-                        <input type="number" placeholder="Número" name="numCasa">
-                     
-                    </li>
-                    <li>
-                        <input type="number" placeholder="CPF" name="CPF">
-                        <input type="number" placeholder="RG" name="rg">
-                        
-                    </li>
-                    <li>
-                        <input type="text" placeholder="Nome do pai" name="FatherName">
-                        <input type="text" placeholder="Nome da mãe" name="motherName">
-                    </li>
-                </ul>
-                <button type="submit">Submit</button>
-            </form>
+    <h2>Registrar</h2>
+    <form action="/show" method="POST">
+        <input type="text" placeholder="Nome" name="name">
+        <input type="text" placeholder="Sobrenome" name="surname"><br />
+
+        <input type="tel" placeholder="Telefone" name="telefone">
+        <input type="email" placeholder="email" name="email"><br/>
+
+        <input type="text" placeholder="Endereço" name="endereco">
+        <input type="number" placeholder="Número" name="numCasa"><br/>
+
+        <input type="number" placeholder="CPF" name="CPF">
+        <input type="number" placeholder="RG" name="rg"><br/>
+
+        <input type="date" placeholder="Data de nascimento" name="birthDate">
+        <input type="text" placeholder="Nome da mãe" name="motherName"><br/>
+
+        <button type="submit"><a class="myButton">green</a></button>
+    </form>
 
 </body>
 

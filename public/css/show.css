@@ -1,0 +1,31 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+}
+
+form {
+    margin: 10px;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    padding: .4%;
+    background-color: #dddddd;
+}
+
+th {
+    height: 50px;
+    background-color: #bbbbbb;
+}
+
+button {
+    margin-bottom: 20px;
+}
