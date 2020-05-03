@@ -23,28 +23,39 @@ mongoClient.connect(uri, { useUnifiedTopology: true }, (err, client) => {
 
 app.set('view engine', 'ejs')
 
-
-
-app.route('/') //setado a rota, e abaixo as ações a serem tomadas dentro desta rota
+app.route('/')
     .get(function(req, res) {
         db.collection('data').find().toArray((err, results) => {
             if (err) return console.log(err)
-                //console.log(results)
+            results.forEach(element => {
+
+                element.birthDate = element.birthDate.substring(8, 10) + '/' +
+                    element.birthDate.substring(5, 7) + '/' +
+                    element.birthDate.substring(0, 4);
+
+                element.CPF = element.CPF.substring(0, 3) + '.' +
+                    element.CPF.substring(3, 6) + '.' +
+                    element.CPF.substring(6, 9) + '-' +
+                    element.CPF.substring(9, 11);
+
+                element.rg = element.rg.substring(0, 2) + '.' +
+                    element.rg.substring(2, 5) + '.' +
+                    element.rg.substring(5, 8) + '-' +
+                    element.rg.substring(8, 10);
+            });
             res.render('home.ejs', { data: results })
         })
     })
-    .post(async(req, res) => {
-        db.collection('data').save(req.body, (err, result) => {
-            if (err) return console.log(err)
-            console.log('Salvo no Banco de Dados')
-            db.collection('data').find().toArray((err, results) => {
-                if (err) return console.log(err)
-                res.render('home.ejs', { data: results })
-            })
 
+app.route('/save')
 
-        })
+.post(async(req, res) => {
+    db.collection('data').save(req.body, (err, result) => {
+        if (err) return console.log(err)
+        console.log('Salvo no Banco de Dados')
+        res.redirect('/');
     })
+})
 
 
 app.route('/edit/:id')
@@ -57,8 +68,6 @@ app.route('/edit/:id')
     })
     .post((req, res) => {
         var id = req.params.id
-        var name = req.body.name
-        var surname = req.body.surname
         console.log(req.body)
         db.collection('data').updateOne({ _id: ObjectId(id) }, {
             $set: req.body,

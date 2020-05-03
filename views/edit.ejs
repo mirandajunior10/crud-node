@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap CRUD Data Table for Database with Modal Form</title>
+    <title>Editar</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -60,8 +60,8 @@
                                 <input type="text" value="<%= details.rg %>" name="rg" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Nome do pai</label>
-                                <input value="<%= details.FatherName %>" name="FatherName" class="form-control" required></input>
+                                <label>Data de nascimento</label>
+                                <input type="date" value="<%= details.birthDate %>" name="birthDate" class="form-control" required></input>
                             </div>
                             <div class="form-group">
                                 <label>Nome da mãe</label>

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap CRUD Data Table for Database with Modal Form</title>
+    <title>Gerenciamento de pessoas</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -39,7 +39,7 @@
                         <th>Nº casa</th>
                         <th>CPF</th>
                         <th>RG</th>
-                        <th>Nome do pai</th>
+                        <th>Data de nascimento</th>
                         <th>Nome da mãe</th>
                         <th>Ações</th>
                     </tr>
@@ -75,7 +75,7 @@
                                 <%= details.rg %>
                             </td>
                             <td>
-                                <%= details.FatherName   %>
+                                <%= details.birthDate   %>
                             </td>
                             <td>
                                 <%= details.motherName %>
@@ -90,11 +90,10 @@
             </table>
         </div>
     </div>
-    <!-- Edit Modal HTML -->
     <div id="addEmployeeModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="/" method="POST">
+                <form action="/save" method="POST">
                     <div class="modal-header">
                         <h4 class="modal-title">Adicionar Pessoa</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -110,7 +109,7 @@
                         </div>
                         <div class="form-group">
                             <label>Telefone</label>
-                            <input type="text" Class="form-control" name="telefone" required></input>
+                            <input type="text" Class="form-control" name="telefone" data-mask="(___) ___-____" required></input>
                         </div>
                         <div class="form-group">
                             <label>Email</label>
@@ -126,7 +125,7 @@
                         </div>
                         <div class="form-group">
                             <label>CPF</label>
-                            <input type="text" name="CPF" class="form-control" required></input>
+                            <input maxlength="11" minlength="11" type="text" name="CPF" class="form-control" required></input>
                         </div>
                         <div class="form-group">
                             <label>RG</label>
@@ -134,7 +133,7 @@
                         </div>
                         <div class="form-group">
                             <label>Nome do pai</label>
-                            <input name="FatherName" class="form-control" required></input>
+                            <input name="birthDate" type="date" class="form-control" required></input>
                         </div>
                         <div class="form-group">
                             <label>Nome da mãe</label>
